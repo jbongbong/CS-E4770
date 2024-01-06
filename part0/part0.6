@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant browser
+    participant server
+    participant user
+
+    Note right of user: User writes a new note
+
+    user->>browser: Writes note in text field and clicks Save
+    activate browser
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    server-->>browser: Confirmation of note creation
+    deactivate server
+    deactivate browser
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: Updated notes list including the new note
+    deactivate server
