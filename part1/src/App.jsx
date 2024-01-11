@@ -82,6 +82,9 @@ const App = () => {
       }} text="vote" />
       <p>{anecdotes[selected]}</p>
       <p>has {votes[selected]} votes</p>
+      <h1>Anecdote with most votes</h1>
+      <p>{anecdotes[votes.indexOf(Math.max(...votes))]}</p>
+      <p>has {votes[votes.indexOf(Math.max(...votes))]} votes</p>
 
       <h1> give feedback</h1>
       <Button handleClick={() => setGood(good + 1)} text="good"/>
